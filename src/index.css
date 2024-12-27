@@ -2,10 +2,24 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #111;
+  color: #fff;
 }
 
 header {
   padding: 1em;
+  background: #222;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h1 a {
+  color: #ff6347;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+  color: #ff4500;
 }
 
 main {
@@ -15,7 +29,9 @@ main {
 
 footer {
   padding: 1em;
+  background: #222;
   text-align: center;
+  color: #888;
 }
 
 .available-cats {
@@ -33,8 +49,16 @@ footer {
 .filters input {
   width: 200px;
   padding: 0.5rem;
-  border: 1px solid #ced4da;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #fff;
   border-radius: 0.25rem;
+}
+
+.filters select:focus,
+.filters input:focus {
+  outline: none;
+  border-color: #ff6347;
 }
 
 .cats-container {
@@ -44,33 +68,62 @@ footer {
 }
 
 .cat-card {
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   border-radius: 8px;
   overflow: hidden;
+  background: #1c1c1c;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .cat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
 }
 
 .cat-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 2px solid #444;
 }
 
 .cat-info {
   padding: 1rem;
-  background: #f8f9fa;
+  text-align: center;
 }
 
 .cat-info h3 {
+  font-size: 1.5rem;
+  color: #ff6347;
   margin-bottom: 0.5rem;
 }
 
 .cat-info p {
   margin-bottom: 0.25rem;
-  color: #6c757d;
+  color: #aaa;
+}
+
+.cat-info p span {
+  color: #ff6347;
+}
+
+.cat-info p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters select,
+  .filters input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cats-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ContactUs.css';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -22,14 +23,14 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+    <div className="contact-container">
+      <h2 className="contact-title">Contact Us</h2>
+      <form onSubmit={handleSubmit} className="contact-form">
+        <div className="form-group">
           <label htmlFor="name" className="form-label">Name</label>
           <input
             type="text"
-            className="form-control"
+            className="form-input"
             id="name"
             name="name"
             value={formData.name}
@@ -37,11 +38,11 @@ const ContactUs = () => {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="email" className="form-label">Email</label>
           <input
             type="email"
-            className="form-control"
+            className="form-input"
             id="email"
             name="email"
             value={formData.email}
@@ -49,10 +50,10 @@ const ContactUs = () => {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="message" className="form-label">Message</label>
           <textarea
-            className="form-control"
+            className="form-input"
             id="message"
             name="message"
             rows="5"
@@ -61,7 +62,7 @@ const ContactUs = () => {
             required
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">Send Message</button>
+        <button type="submit" className="submit-button">Send Message</button>
       </form>
     </div>
   );

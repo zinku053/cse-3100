@@ -1,75 +1,110 @@
+/* General Reset */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  color: #f0f0f0;
+  background-color: #121212; /* Black background */
 }
 
+/* Container */
 .about-us-container {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
   text-align: center;
+  padding: 20px;
 }
 
+/* Header */
 .header {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .header h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: #ff8c00; /* Vibrant orange */
   margin: 0;
 }
 
 .header nav {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .header nav a {
   margin-right: 20px;
   text-decoration: none;
-  color: #333;
-  font-size: 1rem;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
-header nav a:hover {
-  text-decoration: underline;
+.header nav a:hover {
+  color: #ff8c00; /* Highlight link hover */
 }
 
+/* Sections */
 section {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00ced1; /* Aqua */
 }
 
+section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Team Cards */
 .team-cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  flex-wrap: wrap; /* Support smaller screens */
 }
 
 .team-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  width: 150px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
 .team-card img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .team-card h3 {
-  margin: 10px 0 5px;
-  font-size: 1.2rem;
+  margin: 10px 0;
+  font-size: 1.4rem;
+  color: #ff8c00;
 }
 
 .team-card p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* Footer (Optional Styling) */
+footer {
+  margin-top: 40px;
   font-size: 1rem;
-  color: #555;
+  color: #888;
+  text-align: center;
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './AvailableCats.css';
 
 const availableCats = [
   { name: 'Whiskers', age: '2', breed: 'Sphynx' },
@@ -19,7 +20,11 @@ export default function AvailableCats() {
   useEffect(() => {
     const fetchCatImages = async () => {
       try {
-        const responses = await Promise.all(availableCats.map(() => fetch('https://api.thecatapi.com/v1/images/search').then((res) => res.json())));
+        const responses = await Promise.all(
+          availableCats.map(() =>
+            fetch('https://api.thecatapi.com/v1/images/search').then((res) => res.json())
+          )
+        );
         const catsWithImages = availableCats.map((cat, index) => ({
           ...cat,
           image: responses[index][0].url,
@@ -36,14 +41,15 @@ export default function AvailableCats() {
   }, []);
 
   useEffect(() => {
-    const filtered = cats.filter(cat => 
-      (breedFilter === '' || cat.breed === breedFilter) &&
-      (nameFilter === '' || cat.name.toLowerCase().includes(nameFilter.toLowerCase()))
+    const filtered = cats.filter(
+      (cat) =>
+        (breedFilter === '' || cat.breed === breedFilter) &&
+        (nameFilter === '' || cat.name.toLowerCase().includes(nameFilter.toLowerCase()))
     );
     setFilteredCats(filtered);
   }, [breedFilter, nameFilter, cats]);
 
-  const breeds = [...new Set(cats.map(cat => cat.breed))];
+  const breeds = [...new Set(cats.map((cat) => cat.breed))];
 
   return (
     <section className="available-cats">
@@ -51,16 +57,22 @@ export default function AvailableCats() {
       <p className="text-center mb-4">Meet our adorable cats looking for their forever home!</p>
 
       <div className="filters">
-        <select value={breedFilter} onChange={(e) => setBreedFilter(e.target.value)} className="form-select">
+        <select
+          value={breedFilter}
+          onChange={(e) => setBreedFilter(e.target.value)}
+          className="form-select"
+        >
           <option value="">All Breeds</option>
-          {breeds.map(breed => (
-            <option key={breed} value={breed}>{breed}</option>
+          {breeds.map((breed) => (
+            <option key={breed} value={breed}>
+              {breed}
+            </option>
           ))}
         </select>
-        <input 
-          type="text" 
-          placeholder="Search by name" 
-          value={nameFilter} 
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={nameFilter}
           onChange={(e) => setNameFilter(e.target.value)}
           className="form-control"
         />
